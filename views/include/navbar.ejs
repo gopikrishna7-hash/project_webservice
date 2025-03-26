@@ -1,0 +1,71 @@
+<style>
+  
+</style>
+
+<nav class="navbar bg-body-light border-bottom sticky-top">
+    <div class="container-fluid nav-link">
+        <a href="/listings" style="color: rgb(200, 68, 20); font: size 3rem;" class="navbar" ><i class="fa-solid fa-holly-berry">Worldtour</i></a>
+        <a href="/listings">Explore</a>
+        <a href="/listings/new">Airbnb your home</a>
+        
+      <div class="navbar-nav ">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 border border-danger" type="search" placeholder="Search destinations" aria-label="Search">
+          <button class="btn btn-search btn-outline-success" onclick="searchLocation()" type="submit">Search</button>
+        </form>
+      </div>
+    
+      
+      <button class="navbar-toggler  " style="margin-right: 20px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+       
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        
+        <div class="offcanvas-header">
+         
+          <button type="button" class="btn-close btn-close-white " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <% if(!currUser) {  %>
+        <div class="offcanvas-body " style="color:white">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link"  href="/signup" style="color:white"><b>Sign up</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login" style="color:white">Log in</a>
+            </li>
+            <%}%>
+           <% if(currUser) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout" style="color:white">Log out </a>
+            </li>
+            <%}%>
+            
+           
+          </ul>
+        </div>
+        
+        
+        
+      
+    </div>
+  </nav>
+<script>
+  function searchLocation() {
+    const input = document.getElementById("locationInput").value.toLowerCase();
+    const resultElement = document.getElementById("searchResult");
+
+    // Predefined list of locations
+    const locations = ["chennai", "bangalore", "mumbai", "delhi", "kolkata"];
+
+    if (locations.includes(input)) {
+        resultElement.textContent = `Location found: ${input.charAt(0).toUpperCase() + input.slice(1)}`;
+    } else {
+        resultElement.textContent = "Location not found. Please try again.";
+    }
+}
+
+</script>
+  
