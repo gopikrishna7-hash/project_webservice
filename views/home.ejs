@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/style.css"> <!-- optional: link to public CSS -->
+</head>
+<body>
+    <h1>Welcome to Project Hotels</h1>
+    <p>This is the home page of your deployed app!</p>
+
+    <% if (currUser) { %>
+        <p>Logged in as: <%= currUser.username %></p>
+    <% } else { %>
+        <p>You are not logged in.</p>
+    <% } %>
+
+    <% if (success) { %>
+        <p style="color: green;"><%= success %></p>
+    <% } %>
+
+    <% if (error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+</body>
+</html>
