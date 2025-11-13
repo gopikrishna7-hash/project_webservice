@@ -93,10 +93,6 @@ app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
 
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
-
 
 app.all("*",(err,req,res,next)=>{
     next(new expressErr(404,"Page not found!"));
@@ -109,8 +105,7 @@ app.use((err,req,res,next)=>{
     
 });
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
 
+app.listen(8080,()=>{
+    console.log("server is listening to 8080 ");
+});
